@@ -87,10 +87,9 @@ session_start();
         </div>
       </section>
 
-      <h3 class="center-align" style="">Novidades</h3>
-
-      b
-
+      <?php
+      require 'index.html' 
+      ?>
 
       <!-- Jquery -->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
