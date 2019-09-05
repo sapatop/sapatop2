@@ -46,30 +46,38 @@ session_start();
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
-          </ul>
-          <ul class="right">
-            <li><a href="#!" style="color: #4b392e;">Promoções<i class="material-icons right"></i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e;">Sandalias<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sandálias<i class="material-icons right">arrow_drop_down</i></a></li>
           </ul>
         </div>
       </nav>
       <!-- Menu mobile -->
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="sobre.php">Sobre</a></li>
-        <li><a href="feminino.php">Feminino</a></li>
-        <li><a href="masculino.php">Masculino</a></li>
-        <li><a class="waves-effect waves-light btn #6a1b9a purple darken-3" href="#">Login</a></li>
-        <li><a class="waves-effect waves-light btn #6a1b9a purple darken-3" href="#">Cadastro</a></li>
+        <li><a href="#" style="color: #4b392e;">Minha conta</a></li>
+        <li><a href="#" style="color: #4b392e;">Sandálias</a></li>
+        <li><a href="#" style="color: #4b392e;">Sapatos</a></li>
         <li><a href="#!" style="color: #4b392e;">Promoções<i class="material-icons right"></i></a></li>
+        <li><a href="sobre.php" style="color: #4b392e;">Sobre</a></li>
+        <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+          <li><a href="./cadastro/logout.php" style="color: #4b392e;">Sair</a></li>
+          <?php } else { ?>
+          <li><a href="./cadastro/login.php" style="color: #4b392e;">Login</a></li>
+          <li class="divider"></li>
+          <li><a href="./cadastro/cadastrar.php" style="color: #4b392e;">Cadastro</a></li>
+        <?php } ?>
+        
       </header>
       <!-- Slider -->
-      <section class="black">
+    <div class="container-fluid" style="padding-left: 0; padding-right: 0">
+      <section class="">
         <div class="carousel carousel-slider" data-indicators="true">
           <div class="carousel-fixed-item"></div>
           <div class="carousel-item" href="#one!" >
@@ -86,6 +94,7 @@ session_start();
           </div>
         </div>
       </section>
+    </div>
 
       <?php
       require 'index.html' 
