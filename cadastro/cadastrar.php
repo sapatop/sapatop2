@@ -63,16 +63,16 @@ if($btnCadUsuario){
 		<form method="POST" action="">
 			<h2>Cadastrar-se</h2>
 			<label class="nome" style="font-size: 15px; position: absolute; top: 26.5%; left: 10.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: black; font-size: 15px;">Nome</label>
-			<input type="text" name="nome" placeholder="Digite o seu nome"><br><br>
+			<input type="text" name="nome" placeholder="Digite o seu nome" required><br><br>
 			
 			<label class="email" style="font-size: 15px; position: absolute; top: 41%; left: 10.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: black; font-size: 15px;">E-mail</label>
-			<input type="text" name="email" placeholder="Digite o seu e-mail"><br><br>
+			<input type="text" name="email" placeholder="Digite o seu e-mail" required><br><br>
 			
 			<label class="usuario" style="font-size: 15px; position: absolute; top: 56%; left: 12%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: black; font-size: 15px;">Usuário</label>
-			<input type="text" name="usuario" placeholder="Digite o usuário"><br><br>
+			<input type="text" name="usuario" placeholder="Digite o usuário" required><br><br>
 			
 			<label class="senha" style="font-size: 15px; position: absolute; top: 72%; left: 10.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: black; font-size: 15px;">Senha</label>
-			<input type="password" name="senha" placeholder="Digite a senha"><br><br>
+			<input type="password" name="senha" placeholder="Digite a senha" required><br><br>
 			
             <ul class="right hide-on-med-and-down">
                 <li><a class="waves-effect waves-light btn #6a1b9a purple darken-3" href="login.php" style=" position: absolute; top: 100%; left: 17.6%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center;">Acessar</a></li>

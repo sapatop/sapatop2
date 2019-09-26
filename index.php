@@ -19,7 +19,8 @@ session_start();
   <body>
     <!-- Menu tela grande -->
     <header>
-      <nav style="background-color: #faf2ee">
+    <div class="navbar-fixed">
+      <nav style="background-color: #faf2ee" >
         <ul id="dropdown1" class="dropdown-content">
           <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
           <li><a href="./cadastro/logout.php">Sair</a></li>
@@ -56,6 +57,7 @@ session_start();
           </ul>
         </div>
       </nav>
+    </div>
       <!-- Menu mobile -->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="#" style="color: #4b392e;">Minha conta</a></li>
@@ -102,7 +104,7 @@ session_start();
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Contato</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Política de Privacidade</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Quem somos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>

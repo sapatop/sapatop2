@@ -43,10 +43,10 @@
 		<form method="POST" action="valida.php">
 			<h2>Área de login</h2>
 			<label class="usuario" style="position: absolute; top: 38%; left: 11.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: black; font-size: 15px;">Usuário</label>
-			<input type="text" name="usuario" placeholder="Digite o seu usuário"><br><br>
+			<input type="text" name="usuario" placeholder="Digite o seu usuário" required><br><br>
 			
 			<label class="senha" style="position: absolute; top: 62%; left: 10.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: black; font-size: 15px;">Senha</label>
-			<input type="password" name="senha" placeholder="Digite a sua senha"><br><br>
+			<input type="password" name="senha" placeholder="Digite a sua senha" required><br><br>
 			
 			<input type="submit" name="btnLogin" value="Acessar" style=" position: absolute; top: 100%; left: 18%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center;" class="waves-effect waves-light btn #6a1b9a purple darken-3">
 			

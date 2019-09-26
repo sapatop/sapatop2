@@ -19,6 +19,7 @@ session_start();
   <body>
     <!-- Menu tela grande -->
     <header>
+    <div class="navbar-fixed">
       <nav style="background-color: #faf2ee">
         <ul id="dropdown1" class="dropdown-content">
           <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
@@ -58,6 +59,7 @@ session_start();
           </ul>
         </div>
       </nav>
+    </div>
       <!-- Menu mobile -->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="#" style="color: #4b392e;">Minha conta</a></li>
@@ -80,16 +82,16 @@ session_start();
           <div class="carousel carousel-slider" data-indicators="true">
             <div class="carousel-fixed-item"></div>
             <div class="carousel-item" href="#one!" >
-              <img src="img/banner02.png">
+              <img src="img/banner.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner02.png">
+              <img src="img/banner2.jpg">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner02.png">
+              <img src="img/banner3.jpg">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner02.png">
+              <img src="img/banner4.jpg">
             </div>
 <!--             <div class="" style="float: right; ">
               <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
@@ -119,7 +121,7 @@ session_start();
         <div class="col s6 m6 l3">
           <div class="card">
             <div class="card-image">
-              <img src="img/1280x720.png">
+              <img src="img/bota1.jpg">
               <span class="card-title">Sapato1</span>
             </div>
             <div class="card-content">
@@ -304,7 +306,7 @@ session_start();
               <a class="text-lighten-3" style="color: #674c4c" href="#!">Contato</a><br>
               <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
               <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
-              <a class="text-lighten-3" style="color: #674c4c" href="#!">Política de Privacidade</a><br>
+              <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
               <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
               <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
               <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
@@ -353,11 +355,11 @@ session_start();
                   <div class="col l1 s12">
                   </div>
                 </div>
-                <div class="footer-copyright">
+                <div class="footer-copyright" style="color: #674c4c">
                   <div class="container">
                     COM VOCÊ, ONDE VOCÊ ESTIVER | NÓS ❤ SAPATOS
                     ©2019 - Tecnologistica Distribuidora E Comercio De Calcados E Bolsas Ltda | CNPJ - 30.901.791/0001-91
-                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
                   </div>
                 </div>
               </footer>
