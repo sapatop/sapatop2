@@ -31,13 +31,13 @@ session_start();
           <?php } ?>
         </ul>
         <ul id="dropdown2" class="dropdown-content">
-          <li><a href="produtos.php">Alpargatas</a></li>
-          <li><a href="#!">Espadrilles</a></li>
-          <li><a href="#!">Saltos</a></li>
+          <li><a href="tenis.php">Tênis</a></li>
+          <li><a href="#!">Chanel</a></li>
+          <li><a href="#!">Scarpin</a></li>
         </ul>
         <ul id="dropdown3" class="dropdown-content">
           <li><a href="#!">Sapatilhas</a></li>
-          <li><a href="#!">Chinelos</a></li>
+          <li><a href="#!">Anabelas</a></li>
           <li><a href="#!">Rasteiras</a></li>
         </ul>
         <div class="nav-wrapper">
@@ -80,16 +80,16 @@ session_start();
           <div class="carousel carousel-slider" data-indicators="true">
             <div class="carousel-fixed-item"></div>
             <div class="carousel-item" href="#one!" >
-              <img src="img/banner02.png">
+              <img src="img/banner.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner02.png">
+              <img src="img/banner2.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner02.png">
+              <img src="img/banner3.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner02.png">
+              <img src="img/banner4.png">
             </div>
           </div>
         </section>

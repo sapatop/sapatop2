@@ -20,7 +20,7 @@ session_start();
     <!-- Menu tela grande -->
     <header>
     <div class="navbar-fixed">
-      <nav style="background-color: #faf2ee">
+      <nav style="background-color: #faf2ee" >
         <ul id="dropdown1" class="dropdown-content">
           <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
           <li><a href="./cadastro/logout.php">Sair</a></li>
@@ -31,16 +31,14 @@ session_start();
           <?php } ?>
         </ul>
         <ul id="dropdown2" class="dropdown-content">
-          <li><a href="#">one</a></li>
-          <li><a href="#!">two</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">three</a></li>
+          <li><a href="tenis.php">Tênis</a></li>
+          <li><a href="#!">Chanel</a></li>
+          <li><a href="#!">Scarpin</a></li>
         </ul>
         <ul id="dropdown3" class="dropdown-content">
-          <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">three</a></li>
+          <li><a href="#!">Sapatilhas</a></li>
+          <li><a href="#!">Anabelas</a></li>
+          <li><a href="#!">Rasteiras</a></li>
         </ul>
         <div class="nav-wrapper">
           <a href="index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>
@@ -85,13 +83,13 @@ session_start();
               <img src="img/banner.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner2.jpg">
+              <img src="img/banner2.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner3.jpg">
+              <img src="img/banner3.png">
             </div>
             <div class="carousel-item" href="#one!">
-              <img src="img/banner4.jpg">
+              <img src="img/banner4.png">
             </div>
 <!--             <div class="" style="float: right; ">
               <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
@@ -121,7 +119,7 @@ session_start();
         <div class="col s6 m6 l3">
           <div class="card">
             <div class="card-image">
-              <img src="img/bota1.jpg">
+              <img src="img/tenis1.jpg">
               <span class="card-title">Sapato1</span>
             </div>
             <div class="card-content">
