@@ -19,45 +19,45 @@ session_start();
   <body>
     <!-- Menu tela grande -->
     <header>
-    <div class="navbar-fixed">
-      <nav style="background-color: #faf2ee" >
-        <ul id="dropdown1" class="dropdown-content">
-          <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
-          <li><a href="./cadastro/logout.php">Sair</a></li>
-          <?php } else { ?>
-          <li><a href="./cadastro/login.php">Login</a></li>
-          <li class="divider"></li>
-          <li><a href="./cadastro/cadastrar.php">Cadastro</a></li>
-          <?php } ?>
-        </ul>
-        <ul id="dropdown2" class="dropdown-content">
-          <li><a href="tenis.php">Tênis</a></li>
-          <li><a href="#!">Chanel</a></li>
-          <li><a href="#!">Scarpin</a></li>
-        </ul>
-        <ul id="dropdown3" class="dropdown-content">
-          <li><a href="#!">Sapatilhas</a></li>
-          <li><a href="#!">Anabelas</a></li>
-          <li><a href="#!">Rasteiras</a></li>
-        </ul>
-        <div class="nav-wrapper">
-          <a href="index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
+      <div class="navbar-fixed">
+        <nav style="background-color: #faf2ee" >
+          <ul id="dropdown1" class="dropdown-content">
+            <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+            <li><a href="./cadastro/logout.php">Sair</a></li>
+            <?php } else { ?>
+            <li><a href="./cadastro/login.php">Login</a></li>
+            <li class="divider"></li>
+            <li><a href="./cadastro/cadastrar.php">Cadastro</a></li>
+            <?php } ?>
           </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+          <ul id="dropdown2" class="dropdown-content">
+            <li><a href="tenis.php">Tênis</a></li>
+            <li><a href="#!">Chanel</a></li>
+            <li><a href="#!">Scarpin</a></li>
           </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
+          <ul id="dropdown3" class="dropdown-content">
+            <li><a href="#!">Sapatilhas</a></li>
+            <li><a href="#!">Anabelas</a></li>
+            <li><a href="#!">Rasteiras</a></li>
           </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sandálias<i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+          <div class="nav-wrapper">
+            <a href="index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sandálias<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
       <!-- Menu mobile -->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="#" style="color: #4b392e;">Minha conta</a></li>
@@ -76,23 +76,30 @@ session_start();
       </header>
       <!-- Slider -->
       <div class="container-fluid" style="padding-left: 0; padding-right: 0">
-        <section class="">
-          <div class="carousel carousel-slider" data-indicators="true">
-            <div class="carousel-fixed-item"></div>
-            <div class="carousel-item" href="#one!" >
-              <img src="img/banner.png">
-            </div>
-            <div class="carousel-item" href="#one!">
-              <img src="img/banner2.png">
-            </div>
-            <div class="carousel-item" href="#one!">
-              <img src="img/banner3.png">
-            </div>
-            <div class="carousel-item" href="#one!">
-              <img src="img/banner4.png">
-            </div>
+        <div class="row">
+          <div class="col s12" style="padding: 0;">
+            <section class="">
+              <div class="carousel carousel-slider" data-indicators="true">
+                <div class="carousel-fixed-item"></div>
+                <div class="carousel-item" href="#one!" >
+                  <img src="img/banner.png">
+                </div>
+                <div class="carousel-item" href="#one!">
+                  <img src="img/banner2.png">
+                </div>
+                <div class="carousel-item" href="#one!">
+                  <img src="img/banner3.png">
+                </div>
+                <div class="carousel-item" href="#one!">
+                  <img src="img/banner4.png">
+                </div>
+                <!--             <div class="" style="float: right; ">
+                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
+                </div> -->
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
       <h3 class="center-align" style="">Novidades</h3>
       <footer class="page-footer" style="background-color: #f5e2d8;">
@@ -101,12 +108,11 @@ session_start();
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Contato</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Quem somos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
               </div>
               <div class="col l3 s12">
@@ -115,12 +121,12 @@ session_start();
                   Telefone: (51) 3564-6646<br>
                   Whatsapp: (51) 99273-9456<br>
                   Horário de atendimento:<br>
-                  Segunda à quinta-feira: 7:00 às 11:00 e 13:00 às 17:00.<br>
-                  Sexta:-feira: 7:00 às 11:00 e 13:00 às 16:00.<br>
+                  De segunda à quinta-feira: das 7:00 às 11:00 e das 13:00 às 17:00.<br>
+                  De sexta:-feira: das 7:00 às 11:00 e das 13:00 às 16:00.<br>
                 </p>
               </div>
               <div class="col l6 s12">
-                <h5 style="color: #674c4c">Inscreva-se</h5><p>
+                <h5 style="color: #674c4c">Inscreve-se</h5><p>
                   <form action="/pagina-processa-dados-do-form" method="post">
                     <div>
                       <a class="text-lighten-3" style="color: #674c4c" href="#!">Inscreva-se para receber mais novidades!</a><p>
@@ -153,11 +159,10 @@ session_start();
                     <div class="col l1 s12">
                     </div>
                   </div>
-                  <div class="footer-copyright">
+                  <div class="footer-copyright" style="color: #674c4c">
                     <div class="container">
-                      COM VOCÊ, ONDE VOCÊ ESTIVER | NÓS ❤ SAPATOS
-                      ©2019 - Tecnologistica Distribuidora E Comercio De Calcados E Bolsas Ltda | CNPJ - 30.901.791/0001-91
-                      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                      Sapatop ©2019 - Comercio de calcados LTDA | CNPJ - 30.901.791/0001-91
+                      <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
                     </div>
                   </div>
                 </footer>

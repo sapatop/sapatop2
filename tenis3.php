@@ -74,108 +74,119 @@ session_start();
         <?php } ?>
         
       </header>
-      <section>
-        <h3 class="center-align">Quem somos</h3>
-        <div class="container">
-          <div class="row">
-            <div class="col s12">
-              <p class="maven">
-                Sejam Bem vindos a Nossa Empresa, entramos no ramo de calçados em 2019, sempre trazendo os melhores produtos e o melhor preço e claro a melhor experiência de compra ONLINE, com diversos tipos de marcas que atendem a todos os gostos.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col s12">
-              <p class="maven">
-                Sobre a Sapatop
-                <br><br>
-                A Sapatop é a maior rede de calçados de Caraguatatuba. Com quase 2 anos de experiência, construiu uma forte relação de cumplicidade e intimidade com os clientes, conhecendo e acompanhando suas necessidades e anseios.
-                A proposta da marca é ser íntima e cúmplice dos clientes e seus sonhos, oferecendo a eles acesso a calçados de qualidade, considerando sua diversidade e respeitando as tendências internacionais. Ao longo de sua história, a Sapatop é conhecida e reconhecida por seu slogan “Sapato bpm, sapato top, sapatop!”.
-                <br><br>
-                Está presente hoje em todas as regiões de Caraguatatuba e conta com aproximadamente 10 lojas nas melhores ruas e shoppings da cidade. É uma das pioneiras do setor no e-commerce, oferecendo seus produtos pela sua loja virtual há 2 anos.
-                <br><br>
-                A Sapatop também possui uma divisão de produtos e serviços financeiros, associada ao financiamento de suas clientes, que amplia o valor e o acesso aos seus produtos.
-                
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="servicos"style="background-color: #f5e2d8;" >
-        <div class="container">
-          <div class="row">
-            <h3 class="center-align" style="color: #674c4c">Serviços</h3>
-            <p class="center-align"style="color: #674c4c">
-              Um pouco de nosso serviço.
-            </p>
-            <div class="col s12 m6 l3 center center-align">
-              <div class="center promo promo-example">
-                <i class="large material-icons"style="color: #674c4c">flash_on</i>
-                <p class="promo caption"style="color: #674c4c">Rapidez</p>
-                <p class="marven center"style="color: #674c4c">
-                  Nossa especialidade é fazer as entregas desejadas em um menor tempo possivel para a satisfação de nossos clientes que consumirem nosso produto.
-                </p>
-              </div>
-              <!--  -->
-            </div>
-            <div class="col s12 m6 l3 center center-align">
-              <div class="center promo promo-example">
-                <i class="large material-icons"style="color: #674c4c">group</i>
-                <p class="promo caption"style="color: #674c4c">Equipe</p>
-                <p class="marven center"style="color: #674c4c">
-                  Nossa equipe se empenha para que cada vez mais podemos atender a todos os pedidos dos clientes sempre que possivel.
-                </p>
-              </div>
-            </div>
-            <div class="col s12 m6 l3 center center-align">
-              <div class="center promo promo-example">
-                <i class="large material-icons"style="color: #674c4c">cloud</i>
-                <p class="promo caption"style="color: #674c4c">Seus dados</p>
-                <p class="marven center"style="color: #674c4c">
-                  Para nossa é de extrema importância que seus dados estejam seguros ao realizar uma compra ou o cadastro em nosso site.
-                </p>
-              </div>
-            </div>
-            <div class="col s12 m6 l3 center center-align">
-              <div class="center promo promo-example">
-                <i class="large material-icons"style="color: #674c4c">settings</i>
-                <p class="promo caption "style="color: #674c4c">Opções</p>
-                <p class="marven center "style="color: #674c4c">
-                  Temos várias opções para que os clientes tenham uma escolha ampla para a compra de produtos, pagamentos e entregas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="contato">
+      <!-- Slider -->
+      <div class="container-fluid" style="padding-left: 0; padding-right: 0">
         <div class="row">
-          <h3 class="center-align">Onde nos encontrar</h3>
-          <div class="col s12 l7">
-            <div class="video-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7310.201905621735!2d-45.42190333122983!3d-23.63655540739246!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cd631551d2d585%3A0xbe6efd4b81fb3cd0!2sInstituto+Federal+de+Educa%C3%A7%C3%A3o%2C+Ci%C3%AAncia+e+Tecnologia+de+S%C3%A3o+Paulo%2C+Campus+Caraguatatuba!5e0!3m2!1spt-BR!2sbr!4v1541092978472" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="col s12 l4">
-            <ul class="collapsible">
-              <li>
-                <div class="collapsible-header"><i class="material-icons">add_location</i>Endereço</div>
-                <div class="collapsible-body"><span>Av. Bahia, 1739 - Indaiá<br>Caraguatatuba - SP</span></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">tram</i>CEP</div>
-                <div class="collapsible-body"><span>11665-071</span></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">local_phone</i>Telefone</div>
-                <div class="collapsible-body"><span>(12) 3885-2130</span></div>
-              </li>
-            </ul>
+          <div class="col s12" style="padding: 0;">
+            <section class="">
+              <div class="carousel carousel-slider" data-indicators="true">
+                <div class="carousel-fixed-item"></div>
+                <div class="carousel-item" href="#one!" >
+                  <img src="img/banner.png">
+                </div>
+                <div class="carousel-item" href="#one!">
+                  <img src="img/banner2.png">
+                </div>
+                <div class="carousel-item" href="#one!">
+                  <img src="img/banner3.png">
+                </div>
+                <div class="carousel-item" href="#one!">
+                  <img src="img/banner4.png">
+                </div>
+                <!--             <div class="" style="float: right; ">
+                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
+                </div> -->
+              </div>
+            </section>
           </div>
         </div>
-      </section>
+      </div>
+      <div class="container-fluid">
+        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
+                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--       <div class="container-fluid">
+        <div class="row">
+          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
+        </div>
+      </div> -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/1280x720.png">
+                <span class="card-title">Sapato1</span>
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/1280x720.png">
+                <span class="card-title">Sapato2</span>
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/1280x720.png">
+                <span class="card-title">Sapato3</span>
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/1280x720.png">
+                <span class="card-title">Sapato4</span>
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="pagination center">
+        <li class="waves-effect"><a href="tenis2.php"><i class="material-icons">chevron_left</i></a></li>
+        <li class="waves-effect"><a href="tenis.php">1</a></li>
+        <li class="waves-effect"><a href="tenis2.php">2</a></li>
+        <li class="active"><a href="tenis3.php">3</a></li>
+        <li class="waves-effect"><a href="#!">4</a></li>
+        <li class="waves-effect"><a href="#!">5</a></li>
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+      </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">
