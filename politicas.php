@@ -31,14 +31,14 @@ session_start();
             <?php } ?>
           </ul>
           <ul id="dropdown2" class="dropdown-content">
-            <li><a href="tenis.php">Tênis</a></li>
-            <li><a href="#!">Chanel</a></li>
-            <li><a href="#!">Scarpin</a></li>
+            <li><a href="tenis1.php">Tênis</a></li>
+            <li><a href="mule1.php">Mule</a></li>
+            <li><a href="scarpin1.php">Scarpin</a></li>
           </ul>
           <ul id="dropdown3" class="dropdown-content">
-            <li><a href="#!">Sapatilhas</a></li>
-            <li><a href="#!">Anabelas</a></li>
-            <li><a href="#!">Rasteiras</a></li>
+            <li><a href="sapatilha1.php">Sapatilhas</a></li>
+            <li><a href="anabela1.php">Anabelas</a></li>
+            <li><a href="rasteira1.php">Rasteiras</a></li>
           </ul>
           <div class="nav-wrapper">
             <a href="index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>

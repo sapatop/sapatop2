@@ -31,14 +31,14 @@ session_start();
             <?php } ?>
           </ul>
           <ul id="dropdown2" class="dropdown-content">
-            <li><a href="tenis.php">Tênis</a></li>
-            <li><a href="#!">Chanel</a></li>
-            <li><a href="#!">Scarpin</a></li>
+            <li><a href="tenis1.php">Tênis</a></li>
+            <li><a href="mule1.php">Mule</a></li>
+            <li><a href="scarpin1.php">Scarpin</a></li>
           </ul>
           <ul id="dropdown3" class="dropdown-content">
-            <li><a href="#!">Sapatilhas</a></li>
-            <li><a href="#!">Anabelas</a></li>
-            <li><a href="#!">Rasteiras</a></li>
+            <li><a href="sapatilha1.php">Sapatilhas</a></li>
+            <li><a href="anabela1.php">Anabelas</a></li>
+            <li><a href="rasteira1.php">Rasteiras</a></li>
           </ul>
           <div class="nav-wrapper">
             <a href="index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>
@@ -120,11 +120,10 @@ session_start();
       </div> -->
       <div class="container-fluid">
         <div class="row">
-          <div class="col s6 m6 l3">
+          <div class="col s12 m6 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato1</span>
+                <img src="img/tenispg2-1.jpg">
               </div>
               <div class="card-content">
                 <p>R$140 ou 4x de R$35</p>
@@ -134,11 +133,10 @@ session_start();
               </div>
             </div>
           </div>
-          <div class="col s6 m6 l3">
+          <div class="col s12 m6 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato2</span>
+                <img src="img/tenispg2-2.jpg">
               </div>
               <div class="card-content">
                 <p>R$140 ou 4x de R$35</p>
@@ -148,11 +146,10 @@ session_start();
               </div>
             </div>
           </div>
-          <div class="col s6 m6 l3">
+          <div class="col s12 m6 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato3</span>
+                <img src="img/tenispg2-3.jpg">
               </div>
               <div class="card-content">
                 <p>R$140 ou 4x de R$35</p>
@@ -162,123 +159,10 @@ session_start();
               </div>
             </div>
           </div>
-          <div class="col s6 m6 l3">
+          <div class="col s12 m6 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato4</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato5</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato6</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato7</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato8</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato9</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato10</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato11</span>
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/1280x720.png">
-                <span class="card-title">Sapato12</span>
+                <img src="img/tenispg2-4.jpg">
               </div>
               <div class="card-content">
                 <p>R$140 ou 4x de R$35</p>
@@ -291,13 +175,13 @@ session_start();
         </div>
       </div>
       <ul class="pagination center">
-        <li class="waves-effect"><a href="tenis.php"><i class="material-icons">chevron_left</i></a></li>
-        <li class="waves-effect"><a href="tenis.php">1</a></li>
-        <li class="active"><a href="tenis2.php">2</a></li>
-        <li class="waves-effect"><a href="tenis3.php">3</a></li>
+        <li class="waves-effect"><a href="tenis1.php"><i class="material-icons">chevron_left</i></a></li>
+        <li class="waves-effect"><a href="tenis1.php">1</a></li>
+        <li class="active"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
         <li class="waves-effect"><a href="#!">4</a></li>
         <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="tenis3.php"><i class="material-icons">chevron_right</i></a></li>
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
       </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
