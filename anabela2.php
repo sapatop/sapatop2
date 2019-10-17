@@ -47,7 +47,7 @@ session_start();
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-              <li><a class="" href="promocoes.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+              <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -101,7 +101,88 @@ session_start();
           </div>
         </div>
       </div>
-      <h3 class="center-align" style="">Novidades</h3>
+      <div class="container-fluid">
+        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
+                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
+                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--       <div class="container-fluid">
+        <div class="row">
+          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
+        </div>
+      </div> -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/anabelapg2-1.jpg">
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/anabelapg2-2.jpg">
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/anabelapg2-3.jpg">
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/anabelapg2-4.jpg">
+              </div>
+              <div class="card-content">
+                <p>R$140 ou 4x de R$35</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Adicionar ao carrinho</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="pagination center">
+        <li class="waves-effect"><a href="anabela1.php"><i class="material-icons">chevron_left</i></a></li>
+        <li class="waves-effect"><a href="anabela1.php">1</a></li>
+        <li class="active"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
+        <li class="waves-effect"><a href="#!">4</a></li>
+        <li class="waves-effect"><a href="#!">5</a></li>
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+      </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">
@@ -111,7 +192,9 @@ session_start();
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
               </div>
               <div class="col l3 s12">
                 <h5 style="color: #674c4c">Contato</h5>
