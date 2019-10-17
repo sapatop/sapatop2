@@ -282,9 +282,6 @@ session_start();
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <li class="active"><a href="#!">1</a></li>
         <li class="waves-effect"><a href="sapatilha2.php">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
         <li class="waves-effect"><a href="sapatilha2.php"><i class="material-icons">chevron_right</i></a></li>
       </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">

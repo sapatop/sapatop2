@@ -227,7 +227,7 @@ session_start();
           <div class="col s6 m4 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/tenispg1-9.jpg">
+                <img src="img/anabelapg1-9.jpg">
               </div>
               <div class="card-content">
                 <p>R$140 ou 4x de R$35</p>
@@ -282,9 +282,6 @@ session_start();
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <li class="active"><a href="#!">1</a></li>
         <li class="waves-effect"><a href="anabela2.php">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
         <li class="waves-effect"><a href="anabela2.php"><i class="material-icons">chevron_right</i></a></li>
       </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">
