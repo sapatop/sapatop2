@@ -74,33 +74,22 @@ session_start();
         <?php } ?>
         
       </header>
-      <!-- Slider -->
-      <div class="container-fluid" style="padding-left: 0; padding-right: 0">
-        <div class="row">
-          <div class="col s12" style="padding: 0;">
-            <section class="">
-              <div class="carousel carousel-slider" data-indicators="true">
-                <div class="carousel-fixed-item"></div>
-                <div class="carousel-item" href="#one!" >
-                  <img src="img/banner.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner2.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner3.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner4.png">
-                </div>
-                <!--             <div class="" style="float: right; ">
-                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
-                </div> -->
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
+      <form method="POST" action="valida.php">
+      <h2>Área de login</h2>
+      <label>Usuário</label>
+      <input type="text" name="usuario" placeholder="Digite o seu usuário" required><br><br>
+      
+      <label>Senha</label>
+      <input type="password" name="senha" placeholder="Digite a sua senha" required><br><br>
+      
+      <input type="submit" name="btnLogin" value="Acessar">
+      
+
+            <ul class="right hide-on-med-and-down">
+                    <li><a class="waves-effect waves-light btn #6a1b9a purple darken-3" href="cadastrar.php" >Cadastre-se aqui</a></li>
+            </ul>
+      </form>
+      <br><br><br>
       <h3 class="center-align" style="">Novidades</h3>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
