@@ -49,6 +49,9 @@ session_start();
             <ul class="right hide-on-med-and-down">
               <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
+            <ul class="left hide-on-med-and-down">
+              <li><a class="" href="addimage/upload_imagem.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Novo Produto<i class="material-icons right"></i></a></li>
+            </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
@@ -120,171 +123,54 @@ session_start();
       </div> -->
       <div class="container-fluid">
         <div class="row">
+          <?php include_once("cadastro/conexao.php");
+            $result_cursos = "SELECT * FROM produtos";
+            $resultado_cursos = mysqli_query($conn, $result_cursos);
+          ?>
+
+          <?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
           <div class="col s6 m4 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/anabelapg1-1.jpg">
+                <a href="anabelaproducts.php?id_curso=<?php echo $rows_cursos['id']; ?>">
+                <img src="img/<?php echo $rows_cursos['caminho_img']; ?>" alt="...">
+                </a>
               </div>
               <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
+                <p><?php echo $rows_cursos['preco']; ?></p>
               </div>
               <div class="card-action">
                 <a href="#">Adicionar ao carrinho</a>
               </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-2.jpg">
+              <a href="editaproduto/editar.php?id=<?php echo $rows_cursos['id']; ?>" class="btn-floating orange "><i class="material-icons">edit</i></a>
+                <td><a href="#modal<?php echo $rows_cursos['id']; ?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
+              <div id="modal<?php echo $rows_cursos['id']; ?>" class="modal">
+              <div class="modal-content">
+                <h4>Opa!</h4>
+                <p>Tem certeza que deseja excluir esse cliente?</p>
               </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
+              <div class="modal-footer">               
+
+                <form action="deleteproduto/delete.php" method="POST">
+                  <input type="hidden" name="id" value="<?php echo $rows_cursos['id']; ?>">
+                  <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+
+                   <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+
+                </form>
+
               </div>
             </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-4.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
             </div>
           </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-5.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-6.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-7.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-8.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg1-9.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-10.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-11.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-12.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
+
         </div>
       </div>
       <ul class="pagination center">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <li class="active"><a href="#!">1</a></li>
         <li class="waves-effect"><a href="anabela2.php">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
         <li class="waves-effect"><a href="anabela2.php"><i class="material-icons">chevron_right</i></a></li>
       </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">
