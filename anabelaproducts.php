@@ -79,24 +79,30 @@ session_start();
           <div class="col s12 m1"></div>
           <div class="col s12 m5">
             <div class="card" style="box-shadow: none;">
+              <?php include_once("cadastro/conexao.php");
+                $id_curso = $_GET['id_curso'];
+                $result_cursos = "SELECT * FROM produtos WHERE id='$id_curso'";
+                $resultado_cursos = mysqli_query($conn, $result_cursos);
+                ?>
+                <?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
               <div class="card-image">
-                <img src="img/anabelapg1-1.jpg">
+                <img src="img/<?php echo $rows_cursos['caminho_img']; ?>" alt="...">
               </div>
             </div>
           </div>
           <div class="col s12 m6">
             <div class="card" style="box-shadow: none;">
               <div class="card-content center">
-                <p style="margin-top: 80px; color: #513f36; font-weight: bold; font-size: 20px;">ANABELA SCHUTZ</p>
+                <p style="margin-top: 80px; color: #513f36; font-weight: bold; font-size: 20px;"><?php echo $rows_cursos['nome']; ?></p>
               </div>
               <div class="card-content center">
-                <p style="margin-top: 60px; color: black; font-weight: ">Tamanho: <span style="color: #513f36; font-weight: bold;">38</span></p>
+                <p style="margin-top: 60px; color: black; font-weight: ">Tamanho: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['tamanho']; ?></span></p>
               </div>
               <div class="card-content center">
-                <p style="color: black; font-weight: ">Preço: <span style="color: #513f36; font-weight: bold;">R$ 390,00</span></p>
+                <p style="color: black; font-weight: ">Preço: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['preco']; ?></span></p>
               </div>
               <div class="card-content center">
-                <p style="color: black; font-weight:">Em estoque: <span style="color: #513f36; font-weight: bold;">15</span></p>
+                <p style="color: black; font-weight:">Em estoque: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['estoque']; ?></span></p>
               </div>
               <div class="card-content">
                 <p></p>
@@ -115,20 +121,25 @@ session_start();
                   <p style="color: #513f36; font-weight: bold; font-size: 20px;">Descrição do produto</p>
                 </div>
                 <div class="card-content">
-                  <p>Cor: <span style="color: #513f36; font-weight: bold;">Caramelo</span></p>
+                  <p>Cor: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['cor']; ?></span></p>
                 </div>
                 <div class="card-content">
-                  <p>Material: <span style="color: #513f36; font-weight: bold;">Couro</span></p>
+                  <p>Material: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['material']; ?></span></p>
                 </div>
                 <div class="card-content">
-                  <p>Material interno: <span style="color: #513f36; font-weight: bold;">Couro</span></p>
+                  <p>Material interno: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['material_inter']; ?></span></p>
                 </div>
                 <div class="card-content">
-                  <p>Salto: <span style="color: #513f36; font-weight: bold;">alto</span></p>
+                  <p>Salto: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['salto']; ?></span></p>
                 </div>
+                <div class="card-content">
+                  <p>Altura do salto: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['alt_salto']; ?></span></p>
+                </div>
+                <?php } ?>
+                <!--
                 <div class="card-content">
                   <p>Altura do salto: <span style="color: #513f36; font-weight: bold;">11.5cm</span></p>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
