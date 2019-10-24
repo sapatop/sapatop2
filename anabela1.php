@@ -1,5 +1,6 @@
-<?php
-session_start();
+<?php include_once("cadastro/conexao.php");
+  $result_cursos = "SELECT * FROM produtos";
+  $resultado_cursos = mysqli_query($conn, $result_cursos);
 ?>
 <!DOCTYPE html>
 <html>

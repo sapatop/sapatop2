@@ -1,5 +1,7 @@
-<?php
-session_start();
+<?php include_once("cadastro/conexao.php");
+  $id_curso = $_GET['id_curso'];
+  $result_cursos = "SELECT * FROM produtos WHERE id='$id_curso'";
+  $resultado_cursos = mysqli_query($conn, $result_cursos);
 ?>
 <!DOCTYPE html>
 <html>
