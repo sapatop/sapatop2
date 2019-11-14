@@ -94,7 +94,6 @@ session_start();
 			<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 			<!-- Materialize JS -->
 			<script type="text/javascript" src="../js/materialize.min.js"></script>
-			</script>
 			<script type="text/javascript">
 			$(document).ready(function(){
 			$('.modal').modal();
