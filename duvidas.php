@@ -74,112 +74,68 @@ session_start();
         <?php } ?>
         
       </header>
-      <!-- Slider -->
-      <div class="container-fluid" style="padding-left: 0; padding-right: 0">
-        <div class="row">
-          <div class="col s12" style="padding: 0;">
-            <section class="">
-              <div class="carousel carousel-slider" data-indicators="true">
-                <div class="carousel-fixed-item"></div>
-                <div class="carousel-item" href="#one!" >
-                  <img src="img/banner.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner2.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner3.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner4.png">
-                </div>
-                <!--             <div class="" style="float: right; ">
-                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
-                </div> -->
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
-                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
-              </div>
+      <section>
+        <h3 class="center-align">Dúvidas Frequentes</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+                <h5>1 – Condições de frete:</h5>
+                Frete Grátis:<p></p>
+                Nas compras acima de R$ 169,90:<br>
+                – Regiões Sul e Sudeste (Capitais e Interiores)<br>
+                – Região Centro-Oeste (Capitais)<br><br/>
+                Nas compras acima de R$ 229,90:<br>
+                – Regiões Norte e Nordeste (Capitais)<br><br/>
+                Nas compras acima de R$ 249,90:<br>
+                – Regiões Centro-Oeste, Norte e Nordeste (Interiores)<br>
+                Caso sua compra não atingir esse valor, o custo do frete será informado no checkout, com base ao total da compra e sua localização, no momento antes da compra.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>2 – Quais as formas de pagamento para realizar minha compra?</h5>
+                Boleto bancário ou cartão de crédito.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>3 - Quais são as formas de envio?</h5>
+                PAC e SEDEX<br><br/>
+                <p></p>
+                <p></p>
+                <h5>4 - Onde posso receber meu pedido?</h5>
+                Realizamos envios para todo o país.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>5 - Quanto tempo para chegar o pedido?</h5>
+                O tempo de entrega dependerá do tipo de envio selecionado e da sua região. Ao calcular o valor do frete, será informado o prazo de entrega.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>6 - Qual o prazo para realizar uma troca?</h5>
+                No caso de arrependimento da compra você tem até 7 dias, após a compra, para solicitar o estorno do pagamento.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>7 - Como acompanhar meu pedido?</h5>
+                Clique em minha conta na barra superior do site, acesse sua conta com usuário e senha. Nessa tela pode conferir o status do se pedido.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>8 - Meu pedido chegou com defeito/avaria, o que fazer?</h5>
+                Caso seu produto chegue com algum defeito ou avaria, para agilizar o processo de troca solicitamos que você nos envie fotos do produto para o e-mail contato@sapatop.com.br para que nossa equipe de qualidade possa fazer uma análise. <br><br/>
+                <p></p>
+                <p></p>
+                <h5>9 - Posso fazer alguma alteração no meu pedido?</h5>
+                Para sua segurança não alteramos os dados em seu pedido após a finalização do mesmo. Caso seja necessária qualquer alteração, o pedido deverá ser cancelado, informando por e-mail.<br><br/>
+                <p></p>
+                <p></p>
+                <h5>10 - Quais são as formas de reembolso?</h5>
+                Caso o produto atenda as exigências para devolução, a restituição do valor será realizada de acordo com a forma de pagamento realizada. <br><br/>
+                <p></p>
+                <p></p>
+                <h5>11 - Como funciona com a troca de um produto? </h5>
+                Somente na primeira troca de um produto o frete é grátis. Caso seja necessário a segunda troca, o frete é por conta do cliente. 
+                Caso o cliente informe o endereço incorreto, o reenvio será considerado como uma troca de produto. Caso seja necessário a troca, o frete é por conta do cliente. <br><br/>
             </div>
           </div>
         </div>
-      </div>
-      <!--       <div class="container-fluid">
-        <div class="row">
-          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
-        </div>
-      </div> -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-2.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-4.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <ul class="pagination center">
-        <li class="waves-effect"><a href="anabela1.php"><i class="material-icons">chevron_left</i></a></li>
-        <li class="waves-effect"><a href="anabela1.php">1</a></li>
-        <li class="active"><a href="#!">2</a></li>
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
+      </section>
+
+      
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">

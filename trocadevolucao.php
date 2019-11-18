@@ -74,119 +74,43 @@ session_start();
         <?php } ?>
         
       </header>
-      <!-- Slider -->
-      <div class="container-fluid" style="padding-left: 0; padding-right: 0">
-        <div class="row">
-          <div class="col s12" style="padding: 0;">
-            <section class="">
-              <div class="carousel carousel-slider" data-indicators="true">
-                <div class="carousel-fixed-item"></div>
-                <div class="carousel-item" href="#one!" >
-                  <img src="img/banner.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner2.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner3.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner4.png">
-                </div>
-                <!--             <div class="" style="float: right; ">
-                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
-                </div> -->
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
-                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
-              </div>
+      <section>
+        <h3 class="center-align">Trocas e Cancelamentos</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <p class="maven">
+                <h5>Cancelamento do pedido:</h5>
+                Caso o pedido já tenha sido processado e enviado, solicitamos que recuse o recebimento da mercadoria no momento da entrega.<br>
+                Se já recebeu o produto, favor entrar em contato através do e-mail contato@sapatop.com.br.<br>
+                Sua solicitação somente será aceita se a comunicação do fato ocorrer em até 07 (sete) dias corridos, a partir da data de recebimento da mercadoria e não haver indício de uso do produto.<br>
+                A restituição do valor da compra no cartão de crédito será realizada pela loja, junto com a sua operadora do cartão de crédito e ocorrerá em até 10 dias úteis após a data do recebimento do produto.<br>
+                A restituição do valor da compra no boleto bancário será realizada pela loja, através de depósito em conta corrente e ocorrerá em até 10 dias úteis após a data do recebimento do produto.<br><br/>
+
+                <h5>Troca por outro produto, numeração ou cor:</h5>
+                Caso o modelo, numeração ou cor solicitada na compra não atender suas expectativas e necessidades, você poderá solicitar a troca em até 30 dias através do e-mail contato@sapatop.com.br.<br>
+                A troca será autorizada somente com a nota fiscal e se o produto não conter nenhum indício de uso.<br>
+                Caso o valor seja maior que o produto adquirido, a diferença ficará sob responsabilidade do comprador. Quando o valor do produto for menor, a Loja realizará o ressarcimento.<br>
+                Somente na primeira troca de um produto o frete é grátis. Caso seja necessário a segunda troca, o frete é por conta do cliente.<br>
+                Caso o cliente informe o endereço incorreto, o reenvio será considerado como uma troca de produto. Caso seja necessário a troca, o frete é por conta do cliente. <br><br/>
+
+                <h5>Cancelamento de Pedido pela Loja Mary Jane:</h5>
+                Não pagamento do boleto bancário e inconsistência de dados preenchidos no pedido.<br><br/>
+
+                <h5>Defeito do Produto ou Erro Operacional:</h5>
+                Caso o produto adquirido tenha alguma avaria ou erro operacional, deverá ser enviado fotos para o e-mail contato@maryjane.com.br, o qual o SAC autorizará a troca ou o conserto.<br><br/>
+              </p>
             </div>
           </div>
         </div>
-      </div>
-      <!--       <div class="container-fluid">
-        <div class="row">
-          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
-        </div>
-      </div> -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-2.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg2-4.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <ul class="pagination center">
-        <li class="waves-effect"><a href="anabela1.php"><i class="material-icons">chevron_left</i></a></li>
-        <li class="waves-effect"><a href="anabela1.php">1</a></li>
-        <li class="active"><a href="#!">2</a></li>
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
+      </section>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-              <a class="text-lighten-3" style="color: #674c4c" href="duvidas.php">Perguntas Frequentes</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="duvidas.php">Perguntas Frequentes</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="trocadevolucao.php">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
@@ -248,7 +172,6 @@ session_start();
                 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
                 <!-- Materialize JS -->
                 <script type="text/javascript" src="js/materialize.min.js"></script>
-                </script>
                 <script type="text/javascript">
                 $(document).ready(function(){
                 $('.modal').modal();
