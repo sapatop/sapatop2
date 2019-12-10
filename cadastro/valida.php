@@ -9,7 +9,7 @@ if($btnLogin){
 		//Gerar a senha criptografa
 		//echo password_hash($senha, PASSWORD_DEFAULT);
 		//Pesquisar o usuário no BD
-		$result_usuario = "SELECT id, nome, email, senha FROM usuarios WHERE usuario='$usuario' LIMIT 1";
+		$result_usuario = "SELECT * FROM usuarios WHERE usuario='$usuario' LIMIT 1";
 		$resultado_usuario = mysqli_query($conn, $result_usuario);
 		if($resultado_usuario){
 			$row_usuario = mysqli_fetch_assoc($resultado_usuario);
@@ -17,6 +17,14 @@ if($btnLogin){
 				$_SESSION['id'] = $row_usuario['id'];
 				$_SESSION['nome'] = $row_usuario['nome'];
 				$_SESSION['email'] = $row_usuario['email'];
+				$_SESSION['nome_do_titular'] = $row_usuario['nome_do_titular'];
+				$_SESSION['numero_do_cartao'] = $row_usuario['numero_do_cartao'];
+				$_SESSION['validade'] = $row_usuario['validade'];
+				$_SESSION['codigo_seg'] = $row_usuario['codigo_seg'];
+				$_SESSION['cpf'] = $row_usuario['cpf'];
+				$_SESSION['telefone'] = $row_usuario['telefone'];
+				$_SESSION['cep'] = $row_usuario['cep'];
+				$_SESSION['numero_casa'] = $row_usuario['numero_casa'];
 				header("Location: ../index.php");
 			}else{
 				$_SESSION['msg'] = "Login e senha incorreto!";

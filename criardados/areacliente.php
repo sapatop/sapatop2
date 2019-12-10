@@ -1,5 +1,6 @@
+
 <?php
-session_start();
+include_once '../cadastro/conexao.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,8 @@ session_start();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ranga&display=swap" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/cliente.css"/>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--Let browser know website is optimized for mobile-->
@@ -23,7 +25,11 @@ session_start();
         <nav style="background-color: #faf2ee" >
           <ul id="dropdown1" class="dropdown-content">
             <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
-            <li><a href="./cadastro/logout.php">Sair</a></li>
+            <li><a href="../carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
+            <li><a href="../cadastro/administrativo.php">Conta</a></li>
+            <li class="divider"></li>
+            <li><a href="../cadastro/logout.php">Sair</a></li>
             <?php } else { ?>
             <li><a href="./cadastro/login.php">Login</a></li>
             <li class="divider"></li>
@@ -31,23 +37,23 @@ session_start();
             <?php } ?>
           </ul>
           <ul id="dropdown2" class="dropdown-content">
-            <li><a href="tenis1.php">Tênis</a></li>
-            <li><a href="mule1.php">Mule</a></li>
-            <li><a href="scarpin1.php">Scarpin</a></li>
+            <li><a href="../tenis1.php">Tênis</a></li>
+            <li><a href="../mule1.php">Mule</a></li>
+            <li><a href="../scarpin1.php">Scarpin</a></li>
           </ul>
           <ul id="dropdown3" class="dropdown-content">
-            <li><a href="sapatilha1.php">Sapatilhas</a></li>
-            <li><a href="anabela1.php">Anabelas</a></li>
-            <li><a href="rasteira1.php">Rasteiras</a></li>
+            <li><a href="../sapatilha1.php">Sapatilhas</a></li>
+            <li><a href="../anabela1.php">Anabelas</a></li>
+            <li><a href="../rasteira1.php">Rasteiras</a></li>
           </ul>
           <div class="nav-wrapper">
-            <a href="index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>
+            <a href="../index.php" class="brand-logo center" style="font-family: 'Ranga', cursive; font-size:50px; color: #4b392e;">Sapatop</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-              <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+              <li><a class="" href="../promocoes.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -74,127 +80,68 @@ session_start();
         <?php } ?>
         
       </header>
-      <!-- Slider -->
-      <div class="container-fluid" style="padding-left: 0; padding-right: 0">
-        <div class="row">
-          <div class="col s12" style="padding: 0;">
-            <section class="">
-              <div class="carousel carousel-slider" data-indicators="true">
-                <div class="carousel-fixed-item"></div>
-                <div class="carousel-item" href="#one!" >
-                  <img src="img/banner.png">
+      <h2 class="center-align" >Termine seu Cadastro</h2>
+      <div class="row">
+        <div class="col s4 m3"></div>
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content ">
+              <form action="update.php" method="POST"> 
+                <input type="hidden" name="id" value="<?php echo $_SESSION['id'];?>">
+                <h4 style=" left: 0; width: 100%; text-align: center;">Dados Bancários</h4> 
+                <p>
+                  <h6 style="color: #674c4c">Nome do Titular</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Nome do Titular" name="nome_do_titular" id="nome_do_titular" value="<?php echo $_SESSION['nome_do_titular'];?>"  />
+                </p>
+                <p>
+                  <h6 style="color: #674c4c">Numero do Cartão</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Numero do Cartão" name="numero_do_cartao" id="numero_do_cartao" value="<?php echo $_SESSION['numero_do_cartao'];?>"  />
+                </p>
+                <p>
+                  <h6 style="color: #674c4c">Válidade</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Válidade" name="validade" id="validade" value="<?php echo $_SESSION['validade'];?>"  />
+                </p>
+                <p>
+                  <h6 style="color: #674c4c">Cód. Segurança</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Cód. Segurança" name="codigo_seg" id="codigo_seg" value="<?php echo $_SESSION['codigo_seg'];?>"  />
+                </p>
+           
+       
+                <h4 style=" left: 0; width: 100%; text-align: center;">Informações do Usuário</h4>
+                <p>
+                  <h6 style="color: #674c4c">Cpf</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Cpf" name="cpf" id="cpf" value="<?php echo $_SESSION['cpf'];?>"  />
+                </p>          
+                <p>
+                  <h6 style="color: #674c4c">Telefone</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Telefone" name="telefone" id="telefone" value="<?php echo $_SESSION['telefone'];?>"  />
+                </p>
+                <p>
+                  <h6 style="color: #674c4c">Cep</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Cep" name="cep" id="cep" value="<?php echo $_SESSION['cep'];?>"  />
+                </p>
+                <p>
+                  <h6 style="color: #674c4c">Numero da Casa</h6>
+                  <input style=" margin-top: 4px;  border: 1px solid #b2b2b2; -webkit-border-radius: 3px;border-radius: 3px;"  type="text" placeholder="Numero da Casa" name="numero_casa" id="numero_casa" value="<?php echo $_SESSION['numero_casa'];?>"  />
+                </p>
+                <div class="center">
+                  <button type="submit" name="btn-editar" class="btn" style="background-color: #4b392e"> Cadastrar</button>
                 </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner2.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner3.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner4.png">
-                </div>
-                <!--             <div class="" style="float: right; ">
-                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
-                </div> -->
-              </div>
-            </section>
+              </form>
+            </div>  
           </div>
         </div>
       </div>
-      <div class="container-fluid">
-        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
-                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--       <div class="container-fluid">
-        <div class="row">
-          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
-        </div>
-      </div> -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg2-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg2-2.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg2-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg2-4.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <ul class="pagination center">
-        <li class="waves-effect"><a href="sapatilha1.php"><i class="material-icons">chevron_left</i></a></li>
-        <li class="waves-effect"><a href="sapatilha1.php">1</a></li>
-        <li class="active"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
+                <a class="text-lighten-3" style="color: #674c4c" href="../duvidas.php">Perguntas Frequentes</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="../trocadevolucao.php">Trocas e Cancelamentos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="../politicas.php">Política de Privacidade</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="../sobre.php">Quem somos</a><br>
               </div>
               <div class="col l3 s12">
                 <h5 style="color: #674c4c">Contato</h5>
@@ -218,7 +165,6 @@ session_start();
                 </div>
                 <div class="row">
                   <div class="col l3 s12">
-                    
                   </div>
                   <div class="col l3 s12">
                     
@@ -243,15 +189,14 @@ session_start();
                   <div class="footer-copyright" style="color: #674c4c">
                     <div class="container">
                       Sapatop ©2019 - Comercio de calcados LTDA | CNPJ - 30.901.791/0001-91
-                      <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
+                      
                     </div>
                   </div>
                 </footer>
                 <!-- Jquery -->
                 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
                 <!-- Materialize JS -->
-                <script type="text/javascript" src="js/materialize.min.js"></script>
-                </script>
+                <script type="text/javascript" src="../js/materialize.min.js"></script>
                 <script type="text/javascript">
                 $(document).ready(function(){
                 $('.modal').modal();
@@ -292,5 +237,21 @@ session_start();
                 <script type="text/javascript">
                 $(".dropdown-trigger").dropdown();
                 </script>
-              </body>
-            </html>
+                <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+</body>
+</html>

@@ -1,5 +1,7 @@
-<?php
-session_start();
+<?php include_once("cadastro/conexao.php");
+  $id_curso = $_GET['id_curso'];
+  $result_cursos = "SELECT * FROM produtos WHERE id='$id_curso'";
+  $resultado_cursos = mysqli_query($conn, $result_cursos);
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +11,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Ranga&display=swap" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="figura.css">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--Let browser know website is optimized for mobile-->
@@ -23,8 +26,14 @@ session_start();
         <nav style="background-color: #faf2ee" >
           <ul id="dropdown1" class="dropdown-content">
             <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
+            <li><a href="cadastro/administrativo.php">Conta</a></li>
+            <li class="divider"></li>
             <li><a href="./cadastro/logout.php">Sair</a></li>
             <?php } else { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
             <li><a href="./cadastro/login.php">Login</a></li>
             <li class="divider"></li>
             <li><a href="./cadastro/cadastrar.php">Cadastro</a></li>
@@ -47,14 +56,21 @@ session_start();
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-              <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+              <li><a class="" href="promocoes.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
+            
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sandálias<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
+            <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+            <ul class="left hide-on-med-and-down">
+              <li><a class="" href="addimage/upload_imagem.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Adicionar Novo Produto<i class="material-icons right"></i></a></li>
+            </ul>
+            <?php }else {  ?>
+            <?php } ?>
           </div>
         </nav>
       </div>
@@ -74,127 +90,82 @@ session_start();
         <?php } ?>
         
       </header>
-      <!-- Slider -->
-      <div class="container-fluid" style="padding-left: 0; padding-right: 0">
-        <div class="row">
-          <div class="col s12" style="padding: 0;">
-            <section class="">
-              <div class="carousel carousel-slider" data-indicators="true">
-                <div class="carousel-fixed-item"></div>
-                <div class="carousel-item" href="#one!" >
-                  <img src="img/banner.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner2.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner3.png">
-                </div>
-                <div class="carousel-item" href="#one!">
-                  <img src="img/banner4.png">
-                </div>
-                <!--             <div class="" style="float: right; ">
-                  <a class="btn waves-effect white grey-text darken-text-2" style="border: 0; border-radius: 0;">Editar</a>
-                </div> -->
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
-                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--       <div class="container-fluid">
-        <div class="row">
-          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
-        </div>
-      </div> -->
       <div class="container-fluid">
         <div class="row">
-          <div class="col s12 m6 l3">
-            <div class="card">
+          <div class="col s12 m1"></div>
+          <div class="col s12 m5">
+            <div class="card" style="box-shadow: none;">
+              <?php include_once("cadastro/conexao.php");
+                $id_curso = $_GET['id_curso'];
+                $result_cursos = "SELECT * FROM produtos WHERE id='$id_curso'";
+                $resultado_cursos = mysqli_query($conn, $result_cursos);
+                ?>
+                <?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
               <div class="card-image">
-                <img src="img/tenispg2-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
+                <img src="img/<?php echo $rows_cursos['caminho_img']; ?>" alt="...">
               </div>
             </div>
           </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg2-2.jpg">
+          <div class="col s12 m6">
+            <div class="card" style="box-shadow: none;">
+              <div class="card-content center">
+                <p style="margin-top: 80px; color: #513f36; font-weight: bold; font-size: 20px;"><?php echo $rows_cursos['nome']; ?></p>
+              </div>
+              <div class="card-content center">
+                <p style="margin-top: 60px; color: black; font-weight: ">Tamanho: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['tamanho']; ?></span></p>
+              </div>
+              <div class="card-content center">
+                <p style="color: black; font-weight: ">Preço: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['preco']; ?></span></p>
+              </div>
+              <div class="card-content center">
+                <p style="color: black; font-weight:">Em estoque: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['estoque']; ?></span></p>
               </div>
               <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
+                <p></p>
               </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg2-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg2-4.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
+              <div class="card-action center" style="border-top: 0px; margin-top: 0px; ">
+                <a class="waves-effect waves-light btn" style="background-color: #faf2ee; color: #674c4c;" href="carrinho.php?acao=add&id=<?php echo $rows_cursos['id']?>" class="card-link">Comprar</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <ul class="pagination center">
-        <li class="waves-effect"><a href="tenis1.php"><i class="material-icons">chevron_left</i></a></li>
-        <li class="waves-effect"><a href="tenis1.php">1</a></li>
-        <li class="active"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
-      <footer class="page-footer" style="background-color: #f5e2d8;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col s12 m12">
+              <div class="card" style="box-shadow: none;">
+                <div class="card-content center">
+                  <p style="color: #513f36; font-weight: bold; font-size: 20px;">Descrição do produto</p>
+                </div>
+                <div class="card-content">
+                  <p>Cor: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['cor']; ?></span></p>
+                </div>
+                <div class="card-content">
+                  <p>Material: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['material']; ?></span></p>
+                </div>
+                <div class="card-content">
+                  <p>Material interno: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['material_inter']; ?></span></p>
+                </div>
+                <div class="card-content">
+                  <p>Salto: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['salto']; ?></span></p>
+                </div>
+                <div class="card-content">
+                  <p>Altura do salto: <span style="color: #513f36; font-weight: bold;"><?php echo $rows_cursos['alt_salto']; ?></span></p>
+                </div>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="duvidas.php">Perguntas Frequentes</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="trocadevolucao.php">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
               </div>
               <div class="col l3 s12">
                 <h5 style="color: #674c4c">Contato</h5>
@@ -243,54 +214,54 @@ session_start();
                   <div class="footer-copyright" style="color: #674c4c">
                     <div class="container">
                       Sapatop ©2019 - Comercio de calcados LTDA | CNPJ - 30.901.791/0001-91
-                      <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
+                      
                     </div>
                   </div>
                 </footer>
-                <!-- Jquery -->
-                <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-                <!-- Materialize JS -->
-                <script type="text/javascript" src="js/materialize.min.js"></script>
-                </script>
-                <script type="text/javascript">
-                $(document).ready(function(){
-                $('.modal').modal();
-                $('.sidenav').sidenav();
-                $('.slider').slider();
-                $('.collapsible').collapsible();
-                $('.materialboxed').materialbox();
-                });
-                </script>
-                <script type="text/javascript">
-                var instance = M.Carousel.init({
-                fullWidth: true
-                });
-                // Or with jQuery
-                $('.carousel.carousel-slider').carousel({
-                fullWidth: true
-                });
-                </script>
-                <script type="text/javascript">
-                // CAROUSEL
-                $(document).ready(function(){
-                $('.carousel').carousel(
-                {
-                dist: 0,
-                padding: 0,
-                fullWidth: true,
-                indicators: true,
-                duration: 100,
-                }
-                );
-                });
-                autoplay()
-                function autoplay() {
-                $('.carousel').carousel('next');
-                setTimeout(autoplay, 4500);
-                }
-                </script>
-                <script type="text/javascript">
-                $(".dropdown-trigger").dropdown();
-                </script>
-              </body>
-            </html>
+                  <!-- Jquery -->
+                  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+                  <!-- Materialize JS -->
+                  <script type="text/javascript" src="js/materialize.min.js"></script>
+                  </script>
+                  <script type="text/javascript">
+                  $(document).ready(function(){
+                  $('.modal').modal();
+                  $('.sidenav').sidenav();
+                  $('.slider').slider();
+                  $('.collapsible').collapsible();
+                  $('.materialboxed').materialbox();
+                  });
+                  </script>
+                  <script type="text/javascript">
+                  var instance = M.Carousel.init({
+                  fullWidth: true
+                  });
+                  // Or with jQuery
+                  $('.carousel.carousel-slider').carousel({
+                  fullWidth: true
+                  });
+                  </script>
+                  <script type="text/javascript">
+                  // CAROUSEL
+                  $(document).ready(function(){
+                  $('.carousel').carousel(
+                  {
+                  dist: 0,
+                  padding: 0,
+                  fullWidth: true,
+                  indicators: true,
+                  duration: 100,
+                  }
+                  );
+                  });
+                  autoplay()
+                  function autoplay() {
+                  $('.carousel').carousel('next');
+                  setTimeout(autoplay, 4500);
+                  }
+                  </script>
+                  <script type="text/javascript">
+                  $(".dropdown-trigger").dropdown();
+                  </script>
+                </body>
+              </html>

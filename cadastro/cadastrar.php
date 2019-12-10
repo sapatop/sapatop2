@@ -45,8 +45,12 @@ if($btnCadUsuario){
 				<nav style="background-color: #faf2ee" >
 					<ul id="dropdown1" class="dropdown-content">
 						<?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+						<li><a href="../carrinho.php">Carrinho</a></li>
+            			<li class="divider"></li>
 						<li><a href="logout.php">Sair</a></li>
 						<?php } else { ?>
+						<li><a href="../carrinho.php">Carrinho</a></li>
+            			<li class="divider"></li>
 						<li><a href="login.php">Login</a></li>
 						<li class="divider"></li>
 						<li><a href="cadastrar.php">Cadastro</a></li>

@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+include_once("conexao.php");
+$result_cursos = "SELECT * FROM usuarios";
+$resultado_cursos = mysqli_query($conn, $result_cursos);
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,8 +27,12 @@ session_start();
 				<nav style="background-color: #faf2ee" >
 					<ul id="dropdown1" class="dropdown-content">
 						<?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+						<li><a href="../carrinho.php">Carrinho</a></li>
+            			<li class="divider"></li>
 						<li><a href="logout.php">Sair</a></li>
 						<?php } else { ?>
+						<li><a href="../carrinho.php">Carrinho</a></li>
+            			<li class="divider"></li>
 						<li><a href="login.php">Login</a></li>
 						<li class="divider"></li>
 						<li><a href="cadastrar.php">Cadastro</a></li>
@@ -75,6 +82,7 @@ session_start();
 				<?php } ?>
 				
 			</header>
+			<?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
 			<form method="POST" action="valida.php">
 				<h2 style="color: #513f36;">Área de login</h2>
 				<label class="usuario" style="position: absolute; top: 38%; left: 11.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: #513f36; font-size: 15px;">Usuário</label>
@@ -83,12 +91,13 @@ session_start();
 				<label class="senha" style="position: absolute; top: 62%; left: 10.5%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: #513f36; font-size: 15px;">Senha</label>
 				<input type="password" name="senha" placeholder="Digite a sua senha" required><br><br>
 				
-				<input type="submit" name="btnLogin" value="Acessar" style=" position: absolute; top: 100%; left: 18%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: white; background-color: #513f36;" class=" btn #6a1b9a">
+				<input type="submit" name="btnLogin" value="Acessar" style=" position: absolute; top: 100%; left: 18%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; color: white; background-color: #513f36;" class=" btn #6a1b9a" href="../minhaconta.php?id=<?php echo $rows_cursos['id']; ?>">
 				
 				<ul class="right hide-on-med-and-down">
 					<li><a class="waves-effect waves-light btn #6a1b9a" href="cadastrar.php" style=" position: absolute; top: 100%; left: 72%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; background-color: #513f36;">Cadastre-se aqui</a></li>
 				</ul>
 			</form>
+			<?php } ?>
 			<br><br><br>
 			<!-- Jquery -->
 			<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

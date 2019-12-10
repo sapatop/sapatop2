@@ -1,30 +1,66 @@
 <?php
-session_start();
+require_once "functions/product.php";
+$pdoConnection = require_once "connection.php";
+$products = getProducts($pdoConnection);
+?>
+<?php include_once("conexao.php");
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1; //
+$result_curso = "SELECT * FROM produtos  where novidades = 1";
+$resultado_curso = mysqli_query($conn, $result_curso);
+$total_cursos = mysqli_num_rows($resultado_curso); //
+$quantidade_pg = 12; //
+$num_pagina = ceil($total_cursos/$quantidade_pg); //
+$incio = ($quantidade_pg*$pagina)-$quantidade_pg; //
+$result_cursos = "SELECT * FROM produtos where novidades = 1 limit $incio, $quantidade_pg" ;
+$resultado_cursos = mysqli_query($conn, $result_cursos);
+$total_cursos = mysqli_num_rows($resultado_cursos); //
+
+
+$pagina2 = (isset($_GET['pagina']))? $_GET['pagina'] : 1; //
+$result_curso2 = "SELECT * FROM produtos  where destaques = 1";
+$resultado_curso2 = mysqli_query($conn, $result_curso2);
+$total_cursos2 = mysqli_num_rows($resultado_curso2); //
+$quantidade_pg2 = 12; //
+$num_pagina2 = ceil($total_cursos2/$quantidade_pg2); //
+$incio2 = ($quantidade_pg2*$pagina2)-$quantidade_pg2; //
+$result_cursos2 = "SELECT * FROM produtos where destaques = 1 limit $incio, $quantidade_pg" ;
+$resultado_cursos2 = mysqli_query($conn, $result_cursos2);
+$total_cursos2 = mysqli_num_rows($resultado_cursos2); //
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" >
   <head>
-    <!--Import Google Icon Font-->
+    <meta charset="UTF-8">
+    <title>Sapatop</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ranga&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel='stylesheet' href='https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css'>
+    <!-- sei la-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+    <link rel='stylesheet' href='https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css'><link rel="stylesheet" href="./style.css">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
-    <title>Sapatop</title>
   </head>
-  <body>
-    <!-- Menu tela grande -->
+  <body style="background-color: white;">
     <header>
       <div class="navbar-fixed">
         <nav style="background-color: #faf2ee" >
           <ul id="dropdown1" class="dropdown-content">
             <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
+            <li><a href="cadastro/administrativo.php">Conta</a></li>
+            <li class="divider"></li>
             <li><a href="./cadastro/logout.php">Sair</a></li>
             <?php } else { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
             <li><a href="./cadastro/login.php">Login</a></li>
             <li class="divider"></li>
             <li><a href="./cadastro/cadastrar.php">Cadastro</a></li>
@@ -49,12 +85,19 @@ session_start();
             <ul class="right hide-on-med-and-down">
               <li><a class="" href="promocoes.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
+            
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sandálias<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
+            <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+            <ul class="left hide-on-med-and-down">
+              <li><a class="" href="addimage/upload_imagem.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Adicionar Novo Produto<i class="material-icons right"></i></a></li>
+            </ul>
+            <?php }else {  ?>
+            <?php } ?>
           </div>
         </nav>
       </div>
@@ -74,7 +117,6 @@ session_start();
         <?php } ?>
         
       </header>
-      <!-- Slider -->
       <div class="container-fluid" style="padding-left: 0; padding-right: 0">
         <div class="row">
           <div class="col s12" style="padding: 0;">
@@ -101,15 +143,125 @@ session_start();
           </div>
         </div>
       </div>
-      <h3 class="center-align" style="">Novidades</h3>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final1.jpg">
+          </div>
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final2.png">
+          </div>
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final3.png">
+          </div>
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final4.png">
+          </div>
+        </div>
+      </div>
+      <h3 class="center-align" style="color: #4b392e">Novidades</h3>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col s12">
+            <section id="owl-1">
+              <div class="owl-carousel owl-theme">
+                <!--Card 1-->
+                <?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
+                <div class="card hoverable">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <a href="products.php?id_curso=<?php echo $rows_cursos['id']; ?>">
+                    <img class="activator" src="img/<?php echo $rows_cursos['caminho_img']; ?>">
+                  </a>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4 center">R$<?php echo number_format($rows_cursos['preco'], 2, ',', '.')?></span>
+                    <p class="center"><a href="carrinho.php?acao=add&id=<?php echo $rows_cursos['id']?>" style="color: #c2927c" class="center" target="_blank">ADICIONAR AO CARRINHO</a></p>
+                  </div>
+                  <div class="center">
+                <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+                <a href="editaproduto/editar.php?id=<?php echo $rows_cursos['id']; ?>" class="btn-floating center" style="background-color: #4b392e"><i class="material-icons center">edit</i></a>
+                <td><a href="#modal<?php echo $rows_cursos['id']; ?>" class="btn-floating modal-trigger center" style="background-color: #4b392e"><i class="material-icons center">delete</i></a></td>
+                <?php }else {  ?>
+                <?php } ?>
+                
+              </div>
+              <div id="modal<?php echo $rows_cursos['id']; ?>" class="modal">
+                <div class="modal-content">
+                  <h4>Opa!</h4>
+                  <p>Tem certeza que deseja excluir esse produto?</p>
+                </div>
+                <div class="modal-footer">
+                  <form action="deleteproduto/delete.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $rows_cursos['id']; ?>">
+                    <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                  </form>
+                </div>
+              </div>
+                </div>
+                <?php } ?>
+                <!--Fim dos Cards-->
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+               
+      <h3 class="center-align" style="color: #4b392e">Destaques</h3>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col s12">
+            <section id="owl-1">
+              <div class="owl-carousel owl-theme">
+                <!--Card 1-->
+                <?php while($rows_cursos2 = mysqli_fetch_assoc($resultado_cursos2)){ ?>
+                <div class="card hoverable">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <a href="products.php?id_curso=<?php echo $rows_cursos2['id']; ?>">
+                    <img class="activator" src="img/<?php echo $rows_cursos2['caminho_img']; ?>">
+                  </a>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4 center">R$<?php echo number_format($rows_cursos2['preco'], 2, ',', '.')?></span>
+                    <p class="center"><a href="carrinho.php?acao=add&id=<?php echo $rows_cursos2['id']?>" style="color: #c2927c" class="center" target="_blank">ADICIONAR AO CARRINHO</a></p>
+                  </div>
+                  <div class="center">
+                <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+                <a href="editaproduto/editar.php?id=<?php echo $rows_cursos2['id']; ?>" class="btn-floating center" style="background-color: #4b392e"><i class="material-icons center">edit</i></a>
+                <td><a href="#modal<?php echo $rows_cursos2['id']; ?>" class="btn-floating modal-trigger center" style="background-color: #4b392e"><i class="material-icons center">delete</i></a></td>
+                <?php }else {  ?>
+                <?php } ?>
+                
+              </div>
+              <div id="modal<?php echo $rows_cursos2['id']; ?>" class="modal">
+                <div class="modal-content">
+                  <h4>Opa!</h4>
+                  <p>Tem certeza que deseja excluir esse produto?</p>
+                </div>
+                <div class="modal-footer">
+                  <form action="deleteproduto/delete.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $rows_cursos2['id']; ?>">
+                    <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                  </form>
+                </div>
+              </div>
+                </div>
+                <?php } ?>
+                <!--Fim dos Cards-->
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
           <div class="row">
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="duvidas.php">Perguntas Frequentes</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="trocadevolucao.php">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
               </div>
@@ -160,10 +312,13 @@ session_start();
                   <div class="footer-copyright" style="color: #674c4c">
                     <div class="container">
                       Sapatop ©2019 - Comercio de calcados LTDA | CNPJ - 30.901.791/0001-91
-                      <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
+                      
                     </div>
                   </div>
                 </footer>
+                <!-- Gitter Chat Link -->
+                <!-- partial -->
+                
                 <!-- Jquery -->
                 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
                 <!-- Materialize JS -->
@@ -209,5 +364,8 @@ session_start();
                 <script type="text/javascript">
                 $(".dropdown-trigger").dropdown();
                 </script>
+                <script src='https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js'></script>
+                <script src='code.js'></script>
+                <script  src="./script.js"></script>
               </body>
             </html>

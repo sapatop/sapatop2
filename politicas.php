@@ -23,11 +23,17 @@ session_start();
         <nav style="background-color: #faf2ee" >
           <ul id="dropdown1" class="dropdown-content">
             <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
-            <li><a href="./cadastro/logout.php">Sair</a></li>
-            <?php } else { ?>
-            <li><a href="./cadastro/login.php">Login</a></li>
+            <li><a href="carrinho.php">Carrinho</a></li>
             <li class="divider"></li>
-            <li><a href="./cadastro/cadastrar.php">Cadastro</a></li>
+            <li><a href="cadastro/administrativo.php">Conta</a></li>
+            <li class="divider"></li>
+            <li><a href="cadastro/logout.php">Sair</a></li>
+            <?php } else { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
+            <li><a href="cadastro/login.php">Login</a></li>
+            <li class="divider"></li>
+            <li><a href="cadastro/cadastrar.php">Cadastro</a></li>
             <?php } ?>
           </ul>
           <ul id="dropdown2" class="dropdown-content">
@@ -47,7 +53,7 @@ session_start();
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-              <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+              <li><a class="" href="promocoes.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -63,14 +69,14 @@ session_start();
         <li><a href="#" style="color: #4b392e;">Minha conta</a></li>
         <li><a href="#" style="color: #4b392e;">Sandálias</a></li>
         <li><a href="#" style="color: #4b392e;">Sapatos</a></li>
-        <li><a href="#!" style="color: #4b392e;">Promoções<i class="material-icons right"></i></a></li>
+        <li><a href="promocoes.php" style="color: #4b392e;">Promoções<i class="material-icons right"></i></a></li>
         <li><a href="sobre.php" style="color: #4b392e;">Sobre</a></li>
         <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
-        <li><a href="./cadastro/logout.php" style="color: #4b392e;">Sair</a></li>
+        <li><a href="cadastro/logout.php" style="color: #4b392e;">Sair</a></li>
         <?php } else { ?>
         <li class="divider"></li>
-        <li><a href="./cadastro/login.php" style="color: #4b392e;">Login</a></li>
-        <li><a href="./cadastro/cadastrar.php" style="color: #4b392e;">Cadastro</a></li>
+        <li><a href="cadastro/login.php" style="color: #4b392e;">Login</a></li>
+        <li><a href="cadastro/cadastrar.php" style="color: #4b392e;">Cadastro</a></li>
         <?php } ?>
         
       </header>
@@ -110,12 +116,10 @@ session_start();
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="duvidas.php">Perguntas Frequentes</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="trocadevolucao.php">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
               </div>
               <div class="col l3 s12">
                 <h5 style="color: #674c4c">Contato</h5>
@@ -164,7 +168,7 @@ session_start();
                   <div class="footer-copyright" style="color: #674c4c">
                     <div class="container">
                       Sapatop ©2019 - Comercio de calcados LTDA | CNPJ - 30.901.791/0001-91
-                      <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
+                      
                     </div>
                   </div>
                 </footer>

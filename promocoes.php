@@ -1,5 +1,45 @@
 <?php
-session_start();
+require_once "functions/product.php";
+$pdoConnection = require_once "connection.php";
+$products = getProducts($pdoConnection);
+?>
+<?php include_once("conexao.php");
+
+
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1; //
+$result_curso = "SELECT * FROM produtos  where queima = 1";
+$resultado_curso = mysqli_query($conn, $result_curso);
+$total_cursos = mysqli_num_rows($resultado_curso); //
+$quantidade_pg = 12; //
+$num_pagina = ceil($total_cursos/$quantidade_pg); //
+$incio = ($quantidade_pg*$pagina)-$quantidade_pg; //
+$result_cursos = "SELECT * FROM produtos where queima = 1 limit $incio, $quantidade_pg" ;
+$resultado_cursos = mysqli_query($conn, $result_cursos);
+$total_cursos = mysqli_num_rows($resultado_cursos); //
+
+
+$pagina2 = (isset($_GET['pagina']))? $_GET['pagina'] : 1; //
+$result_curso2 = "SELECT * FROM produtos  where descontos_semana = 1";
+$resultado_curso2 = mysqli_query($conn, $result_curso2);
+$total_cursos2 = mysqli_num_rows($resultado_curso2); //
+$quantidade_pg2 = 12; //
+$num_pagina2 = ceil($total_cursos2/$quantidade_pg2); //
+$incio2 = ($quantidade_pg2*$pagina2)-$quantidade_pg2; //
+$result_cursos2 = "SELECT * FROM produtos where descontos_semana = 1 limit $incio, $quantidade_pg" ;
+$resultado_cursos2 = mysqli_query($conn, $result_cursos2);
+$total_cursos2 = mysqli_num_rows($resultado_cursos2); //
+
+$pagina3 = (isset($_GET['pagina']))? $_GET['pagina'] : 1; //
+$result_curso3 = "SELECT * FROM produtos  where ofertas_dia = 1";
+$resultado_curso3 = mysqli_query($conn, $result_curso3);
+$total_cursos3 = mysqli_num_rows($resultado_curso3); //
+$quantidade_pg3 = 12; //
+$num_pagina3 = ceil($total_cursos3/$quantidade_pg3); //
+$incio3 = ($quantidade_pg3*$pagina3)-$quantidade_pg3; //
+$result_cursos3 = "SELECT * FROM produtos where ofertas_dia = 1 limit $incio, $quantidade_pg" ;
+$resultado_cursos3 = mysqli_query($conn, $result_cursos3);
+$total_cursos3 = mysqli_num_rows($resultado_cursos3); //
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,8 +63,14 @@ session_start();
         <nav style="background-color: #faf2ee" >
           <ul id="dropdown1" class="dropdown-content">
             <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
+            <li><a href="cadastro/administrativo.php">Conta</a></li>
+            <li class="divider"></li>
             <li><a href="./cadastro/logout.php">Sair</a></li>
             <?php } else { ?>
+            <li><a href="carrinho.php">Carrinho</a></li>
+            <li class="divider"></li>
             <li><a href="./cadastro/login.php">Login</a></li>
             <li class="divider"></li>
             <li><a href="./cadastro/cadastrar.php">Cadastro</a></li>
@@ -47,14 +93,21 @@ session_start();
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: #4b392e; font-size: 15px;"><i class="material-icons right">perm_identity arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-              <li><a class="" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
+              <li><a class="" href="promocoes.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Promoções<i class="material-icons right"></i></a></li>
             </ul>
+            
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="color: #4b392e; font-size: 15px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sapatos<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown3" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Sandálias<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
+            <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+            <ul class="left hide-on-med-and-down">
+              <li><a class="" href="addimage/upload_imagem.php" data-target="dropdown2" style="color: #4b392e; font-size: 15px;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;">Adicionar Novo Produto<i class="material-icons right"></i></a></li>
+            </ul>
+            <?php }else {  ?>
+            <?php } ?>
           </div>
         </nav>
       </div>
@@ -102,357 +155,152 @@ session_start();
         </div>
       </div>
       <div class="container-fluid">
-        <div class="row" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-          <div class="col s12" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-            <div class="card" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-              <div class="card-image" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;">
-                <a class="min-width: 100%" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"><img src="img/tarja.png" ></a>
-                <span class="card-title" style="border-radius: none; border-style: none; box-shadow: none; border-color: white; border-bottom-color: white;"></span>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final1.jpg">
+          </div>
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final2.png">
+          </div>
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final3.png">
+          </div>
+          <div class="col s12 m6 l3">
+            <img src="img/tarja_final4.png">
           </div>
         </div>
       </div>
-      <!--       <div class="container-fluid">
+          <div class="container-fluid">
+        <h1 class="center" style="color: #4b392e">Queima de estoque</h1>
         <div class="row">
-          <a class="btn waves-effect white grey-text darken-text-2 center" style="border: 0; border-radius: 0 ; float: right;">Editar</a>
-        </div>
-      </div> -->
-      <div class="container-fluid">
-        <h1 class="center">Queima de estoque</h1>
-        <div class="row">
+          <?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
           <div class="col s6 m4 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/anabelapg1-1.jpg">
+                <a href="products.php?id_curso=<?php echo $rows_cursos['id']; ?>">
+                  <img src="img/<?php echo $rows_cursos['caminho_img']; ?>">
+                </a>
               </div>
               <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
+                <p>R$<?php echo number_format($rows_cursos['preco'], 2, ',', '.')?> ou 4x de R$<?php echo($rows_cursos['preco']/ 4)?></p>
               </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
+              <div class="card-action center">
+                <a style="color: #c2927c; font-weight: bold" href="carrinho.php?acao=add&id=<?php echo $rows_cursos['id']?>" class="card-link">ADICIONAR AO CARRINHO</a>
+              </div>
+              <div class="center">
+                <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+                <a href="editaproduto/editar.php?id=<?php echo $rows_cursos['id']; ?>" class="btn-floating center" style="background-color: #4b392e"><i class="material-icons center">edit</i></a>
+                <td><a href="#modal<?php echo $rows_cursos['id']; ?>" class="btn-floating modal-trigger center" style="background-color: #4b392e"><i class="material-icons center">delete</i></a></td>
+                <?php }else {  ?>
+                <?php } ?>
+                
+              </div>
+              <div id="modal<?php echo $rows_cursos['id']; ?>" class="modal">
+                <div class="modal-content">
+                  <h4>Opa!</h4>
+                  <p>Tem certeza que deseja excluir esse produto?</p>
+                </div>
+                <div class="modal-footer">
+                  <form action="deleteproduto/delete.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $rows_cursos['id']; ?>">
+                    <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg1-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/mulepg1-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/mulepg1-5.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-5.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/rasteirapg1-6.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/rasteirapg1-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg1-5.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <ul class="pagination center">
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="mule2.php">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="mule2.php"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
-      <div class="container-fluid">
-        <h1 class="center">Descontos semanais</h1>
-        <div class="row">
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/anabelapg1-7.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/mulepg1-7.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/rasteirapg1-8.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg1-7.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/scarpinpg1-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/scarpinpg1-5.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg1-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg1-5.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-        </div>
+   
+          <?php } ?>
+               </div>
       </div>
       <div class="container-fluid">
-        <h1 class="center">Ofertas do dia</h1>
+        <h1 class="center" style="color: #4b392e">Descontos Semanais</h1>
         <div class="row">
+          <?php while($rows_cursos2 = mysqli_fetch_assoc($resultado_cursos2)){ ?>
           <div class="col s6 m4 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/anabelapg1-3.jpg">
+                <a href="products.php?id_curso=<?php echo $rows_cursos2['id']; ?>">
+                  <img src="img/<?php echo $rows_cursos2['caminho_img']; ?>">
+                </a>
               </div>
               <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
+                <p>R$<?php echo number_format($rows_cursos2['preco'], 2, ',', '.')?> ou 4x de R$<?php echo($rows_cursos2['preco']/ 4)?></p>
               </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
+              <div class="card-action center">
+                <a style="color: #c2927c; font-weight: bold" href="carrinho.php?acao=add&id=<?php echo $rows_cursos2['id']?>" class="card-link">ADICIONAR AO CARRINHO</a>
+              </div>
+              <div class="center">
+                <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+                <a href="editaproduto/editar.php?id=<?php echo $rows_cursos2['id']; ?>" class="btn-floating center" style="background-color: #4b392e"><i class="material-icons center">edit</i></a>
+                <td><a href="#modal<?php echo $rows_cursos2['id']; ?>" class="btn-floating modal-trigger center" style="background-color: #4b392e"><i class="material-icons center">delete</i></a></td>
+                <?php }else {  ?>
+                <?php } ?>
+                
+              </div>
+              <div id="modal<?php echo $rows_cursos2['id']; ?>" class="modal">
+                <div class="modal-content">
+                  <h4>Opa!</h4>
+                  <p>Tem certeza que deseja excluir esse produto?</p>
+                </div>
+                <div class="modal-footer">
+                  <form action="deleteproduto/delete.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $rows_cursos2['id']; ?>">
+                    <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
+       
+          <?php } ?>
+           </div>
+      </div>
+      <div class="container-fluid">
+        <h1 class="center" style="color: #4b392e">Ofertas do Dia</h1>
+        <div class="row">
+          <?php while($rows_cursos3 = mysqli_fetch_assoc($resultado_cursos3)){ ?>
           <div class="col s6 m4 l3">
             <div class="card">
               <div class="card-image">
-                <img src="img/mulepg1-3.jpg">
+                <a href="products.php?id_curso=<?php echo $rows_cursos3['id']; ?>">
+                  <img src="img/<?php echo $rows_cursos3['caminho_img']; ?>">
+                </a>
               </div>
               <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
+                <p>R$<?php echo number_format($rows_cursos3['preco'], 2, ',', '.')?> ou 4x de R$<?php echo($rows_cursos3['preco']/ 4)?></p>
               </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
+              <div class="card-action center">
+                <a style="color: #c2927c; font-weight: bold" href="carrinho.php?acao=add&id=<?php echo $rows_cursos3['id']?>" class="card-link">ADICIONAR AO CARRINHO</a>
+              </div>
+              <div class="center">
+                <?php if(isset($_SESSION['id']) && !empty($_SESSION['id']) and ($_SESSION['id'] == 1)) { ?>
+                <a href="editaproduto/editar.php?id=<?php echo $rows_cursos3['id']; ?>" class="btn-floating center" style="background-color: #4b392e"><i class="material-icons center">edit</i></a>
+                <td><a href="#modal<?php echo $rows_cursos3['id']; ?>" class="btn-floating modal-trigger center" style="background-color: #4b392e"><i class="material-icons center">delete</i></a></td>
+                <?php }else {  ?>
+                <?php } ?>
+                
+              </div>
+              <div id="modal<?php echo $rows_cursos3['id']; ?>" class="modal">
+                <div class="modal-content">
+                  <h4>Opa!</h4>
+                  <p>Tem certeza que deseja excluir esse produto?</p>
+                </div>
+                <div class="modal-footer">
+                  <form action="deleteproduto/delete.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $rows_cursos3['id']; ?>">
+                    <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/rasteirapg1-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
+        
+          <?php } ?>
           </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/sapatilhapg1-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/scarpinpg1-1.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/scarpinpg1-7.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg1-3.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m4 l3">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/tenispg1-7.jpg">
-              </div>
-              <div class="card-content">
-                <p>R$140 ou 4x de R$35</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <footer class="page-footer" style="background-color: #f5e2d8;">
         <div class="container-fluid">
@@ -460,12 +308,10 @@ session_start();
             <div class="col l3 s12">
               <h5 style="color: #674c4c">Atendimento</h5>
               <p class="text-lighten-4">
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Perguntas Frequentes</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Trocas e Cancelamentos</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="duvidas.php">Perguntas Frequentes</a><br>
+                <a class="text-lighten-3" style="color: #674c4c" href="trocadevolucao.php">Trocas e Cancelamentos</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="politicas.php">Política de Privacidade</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Lojas</a><br>
                 <a class="text-lighten-3" style="color: #674c4c" href="sobre.php">Quem somos</a><br>
-                <a class="text-lighten-3" style="color: #674c4c" href="#!">Pagamento seguro</a></p>
               </div>
               <div class="col l3 s12">
                 <h5 style="color: #674c4c">Contato</h5>
@@ -514,7 +360,7 @@ session_start();
                   <div class="footer-copyright" style="color: #674c4c">
                     <div class="container">
                       Sapatop ©2019 - Comercio de calcados LTDA | CNPJ - 30.901.791/0001-91
-                      <a class=" right" href="#!" style="color: #674c4c" >More Links</a>
+                      
                     </div>
                   </div>
                 </footer>
