@@ -269,9 +269,13 @@ $total_cursos = mysqli_num_rows($resultado_cursos);
                     <ul>
                       <li>
                         <h5 style="color: #674c4c">Redes Socias</h5>
-                        <a href="#!">
+                        <a href="https://www.instagram.com/sapatopifsp/">
                           <img src="https://www.constance.com.br/skin/frontend/constance-v2018/default/images/insta.svg">
+						  </a>  
+						<a href="https://www.instagram.com/sapatopifsp/">  
                           <img src="https://www.constance.com.br/skin/frontend/constance-v2018/default/images/facebook.svg">
+						  </a>  
+						<a href="https://www.instagram.com/sapatopifsp/">
                           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             width="30" height="30"
                             viewBox="0 0 172 172"
